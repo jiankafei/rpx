@@ -25,7 +25,7 @@
 
  html的字体大小不能设置有`百分比`，会有bug，详情见 [rem](http://caniuse.com/#search=rem)
 
- 为了在pc上得到更好的体验，pc上的宽度定为 `414px`，不能缩放，并且开发者需为 `position:fixed` 元素 手动添加 `.fixed` 类名
+ 为了在pc上得到更好的体验，pc上的宽度定为 `414px`，不能缩放，开发者需为 `position:fixed` 元素手动添加 `.fixed` 类名
 
  点击等事件推荐使用：
 	[PEP](https://code.jquery.com/pep/0.4.2/pep.js),
@@ -35,28 +35,28 @@
  项目中部分内容参考开源项目：
  	[lib-flexible.js](https://github.com/amfe/lib-flexible)
 
- 参考lib-flexible的部分有：
+ 	**参考lib-flexible的部分有：**
 
-	1.添加 `window.lib.flexible` 对象
+	1.添加 window.lib.flexible 对象
 
-	2.添加 `pageshow` 事件，为事件添加节流操作
+	2.添加 pageshow 事件，为事件添加节流操作
 
-	3.最大字体宽度改为`540`
+	3.最大字体宽度改为540
 
 	4.为body添加默认字体大小
 
  条件有限，测试的机器不多，如果某位仁兄在某些机器上发现问题，希望能告诉我或者fork
 
  ## 使用
-	1.不兼容 `vw` 单位
+	1.不兼容 vw 单位
 
-	2.改变`ds`为设计稿大小，默认750px
+	2.改变ds为设计稿大小，默认750px
 
-	3.单位换算 `yrem = xpx / 100`
+	3.单位换算 yrem = xpx / 100
 
-	4.如果要使用单位为px的字体，推荐使用css解析器`(scss,stylus)`的 `mixin` 功能完成
+	4.如果要使用单位为px的字体，推荐使用css解析器(scss,stylus)的 mixin 功能完成
 
-	5.手动配置`dpr`，只需在`html`元素上添加 `data-dpr` 属性即可
+	5.手动配置dpr，只需在`html`元素上添加 data-dpr 属性即可
 
 ## 接口
 
