@@ -35,7 +35,7 @@
  项目中部分内容参考开源项目：
  	[lib-flexible.js](https://github.com/amfe/lib-flexible)
 
- 	**参考lib-flexible的部分有：**
+ 	参考lib-flexible的部分有：
 
 	1.添加 window.lib.flexible 对象
 
@@ -50,13 +50,13 @@
  ## 使用
 	1.不兼容 vw 单位
 
-	2.改变ds为设计稿大小，默认750px
+	2.改变 ds 为设计稿大小，默认750px
 
 	3.单位换算 yrem = xpx / 100
 
 	4.如果要使用单位为px的字体，推荐使用css解析器(scss,stylus)的 mixin 功能完成
 
-	5.手动配置dpr，只需在`html`元素上添加 data-dpr 属性即可
+	5.手动配置 dpr，只需在 html 元素上添加 data-dpr 属性即可
 
 ## 接口
 
