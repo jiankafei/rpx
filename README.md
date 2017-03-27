@@ -32,20 +32,19 @@
 	[allowTouch](http://alloyteam.github.io/),
 	[v-tap](https://github.com/MeCKodo/vue-tap)
 
+ * 条件有限，测试的机器不多，如果某位仁兄在某些机器上发现问题，希望能告诉我或者fork
+
  * 项目中部分内容参考开源项目：
  	[lib-flexible.js](https://github.com/amfe/lib-flexible)
 
- 	参考lib-flexible的部分有：
-
+## 参考lib-flexible的部分有
 	1.添加 window.lib.flexible 对象
 
 	2.添加 pageshow 事件，为事件添加节流操作
 
-	3.最大字体宽度改为540
+	3.最大字体宽度改为 540px
 
-	4.为body添加默认字体大小
-
- * 条件有限，测试的机器不多，如果某位仁兄在某些机器上发现问题，希望能告诉我或者fork
+	4.为 body 添加默认字体大小
 
  ## 使用
 	1.不兼容 vw 单位
@@ -64,7 +63,7 @@
 
 	**[Number]lib.flexible.dpr**
 	**[Number]window.dpr**
-	
+
  * 根字体大小
 
 	**[Number] lib.flexible.rem**
