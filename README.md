@@ -40,8 +40,8 @@
 ## 参考lib-flexible的部分有
 	1.添加 window.lib.flexible 对象
 
-	2.添加 pageshow 事件，为事件添加节流操作
-
+	2.添加 pageshow 事件，为事件添加防抖操作
+	
 	3.最大字体宽度改为 540px
 
 	4.为 body 添加默认字体大小
