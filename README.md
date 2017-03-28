@@ -71,13 +71,15 @@
 
   * dpr值
 
-	**[Number]lib.flexible.dpr**
+	**[Number] lib.flexible.dpr**
 
-	**[Number]window.dpr**
+	**[Number] window.dpr**
 
  * 根字体大小
 
 	**[Number] lib.flexible.rem**
+	
+	**[Number] window.rem**
 
  * rem转px
 
