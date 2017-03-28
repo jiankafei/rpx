@@ -11,7 +11,9 @@
  原理很简单，使用`viewport`进行缩放。
 
  单位换算的关系：当尺寸为设计稿尺寸时（比如750px），根字体大小为100px。ok，比例换算大家应该都会吧。
-
+ 
+ 对rem单位布局不熟悉的可移步这里[rem](https://github.com/hbxeagle/rem)
+ 
  对viewport和设备像素比不了解的移步[这里](http://www.cnblogs.com/2050/p/3877280.html)。
 
 ## 说明
