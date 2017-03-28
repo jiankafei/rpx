@@ -74,7 +74,7 @@
 	function deviceType(){
 		var ua = G.navigator.appVersion,
 			dt = 'pc';
-		/(iPhone|iPod)/i.test(ua) ? dt = 'ios' : /(Android)/i.test(ua) ? dt = 'android' : /(Windows Phone)/i.test(ua) ? dt = 'wp' : dt = 'pc';
+		/(iPhone|iPod|iPad)/i.test(ua) ? dt = 'ios' : /(Android)/i.test(ua) ? dt = 'android' : /(Windows Phone)/i.test(ua) ? dt = 'wp' : dt = 'pc';
 		return dt;
 	};
 	// 添加css规则
