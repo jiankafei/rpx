@@ -2,11 +2,14 @@
  移动端高清屏显示方案
 
 ## 版本
- **1.1**
+ **V1.1**
+ 
  对宽度的获取做了修改，因为在某些机型上有bug，具体如下：
+ 
  1. 在红米上，screen的宽等于Rect的宽度，screen取值有问题，使用Rect取值；
  2. 在安卓中，QQ浏览器、QQwebview、微信webview、支付宝webview、Nexus5x等部分机型里的Rect的宽度取值小于准确值，使用screen取值；
  3. 其他机型使用Rect取值，包括pc上；
+ 
 ## 依赖
  无
 
