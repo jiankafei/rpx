@@ -72,6 +72,7 @@
   * dpr值
 
 	**[Number]lib.flexible.dpr**
+
 	**[Number]window.dpr**
 
  * 根字体大小
