@@ -87,8 +87,7 @@
 
 3.单位换算 yrem = xpx / 100
 
-4.如果要使用单位为px的字体，推荐使用css解析器(scss,stylus)的 mixin 功能完成
-
+4.如果要使用单位为px的字体，推荐使用css解析器(scss,stylus)的 mixin 功能完成。我不建议，因为我在内部并没有做dpr的整数处理，要使用css预解析器的话会有坑；
 5.对于定位fixed的元素，建议加上fixed类名
 
 5.如果手动配置 dpr，只需在 html 元素上添加 data-dpr 属性即可
