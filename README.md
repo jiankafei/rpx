@@ -89,7 +89,9 @@
 
 4.如果要使用单位为px的字体，推荐使用css解析器(scss,stylus)的 mixin 功能完成
 
-5.手动配置 dpr，只需在 html 元素上添加 data-dpr 属性即可
+5.对于定位fixed的元素，建议加上fixed类名
+
+5.如果手动配置 dpr，只需在 html 元素上添加 data-dpr 属性即可
 
 ## 接口
 
