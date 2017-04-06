@@ -1,7 +1,7 @@
 /**
- * author: 碱咖啡
+ * author: WangLe
  * github: [https://github.com/jiankafei]
- * 博客: [https://jiankafei.github.io/] 博客小白，在搭建的时候不只什么原因，博客能打开，但文章点击会404
+ * 博客: [https://jiankafei.github.io/]
  */
 ;(function(G, lib){
 	'use strict';
@@ -37,8 +37,22 @@
 		clearTimeout(tid);
 		tid = G.setTimeout(trans, 300);
 	}, false);
-	G.addEventListener('pageshow', function (e) {
-		e.persisted && (clearTimeout(tid), tid = G.setTimeout(trans, 300));
+	G.addEventListener('pageshow', function (ev) {
+		ev.persisted && (clearTimeout(tid), tid = G.setTimeout(trans, 300));
+	}, false);
+	G.orientation !== undefined && G.addEventListener('orientationchange', function(){
+		/*switch (G.orientation) {
+			case 0:
+			case 180:
+				console.log('portrait');
+				break;
+			case 90:
+			case -90:
+				console.log('landscape');
+				break;
+		}*/
+		clearTimeout(tid);
+		tid = G.setTimeout(trans, 300);
 	}, false);
 
 	// 为body添加默认字体大小
