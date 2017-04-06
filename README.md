@@ -53,7 +53,7 @@
 * 条件有限，测试的机器不多，如果某位仁兄在某些机器上发现问题，提Issue
 * 推荐使用 postcss 的 autoprefixer 插件来实现伸缩盒模型布局的css兼容书写。如果不使用插件，可以使用该项目的 flexbox.css 类库，该类库定义好了类名，只需在使用的元素上添加类名即可，具体查看源文件
 
-* 项目中部分内容参考开源项目：
+* 项目中部分内容参考淘宝的开源项目：
  	[lib-flexible.js](https://github.com/amfe/lib-flexible)
 
 ## 参考lib-flexible的部分有
