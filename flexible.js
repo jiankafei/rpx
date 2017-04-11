@@ -20,7 +20,7 @@
 		getW = function(){return de.getBoundingClientRect().width / dpr}; // 宽度
 
 	/* 在红米上，screen的宽等于Rect的宽度，screen取值有问题，使用Rect取值；在安卓中，QQ浏览器、QQwebview、微信webview、支付宝webview、Nexus5x等部分机型里的Rect的宽度取值小于准确值，使用screen取值 */
-	dt !== 'pc' && de.getBoundingClientRect().width / dpr < G.screen.width && (getW = function(){return G.screen.width});
+	// dt !== 'pc' && de.getBoundingClientRect().width / dpr < G.screen.width && (getW = function(){return G.screen.width});
 	// 为html元素添加data-dpr属性
 	de.setAttribute('data-dpr', dpr);
 	// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
