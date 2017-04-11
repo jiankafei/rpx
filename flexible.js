@@ -73,7 +73,7 @@
 		return val;
 	};
 	flexible.px2rem = function(d){
-		var val = G.parseFloat(d) / this.rem;
+		var val = G.parseFloat(d) / 100;
 		'string' === typeof d && d.match(/px$/) && (val += 'rem');
 		return val;
 	};
