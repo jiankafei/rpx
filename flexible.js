@@ -11,11 +11,12 @@
 		ds = 750, // 设计稿大小
 		maxW = 540, // 最大字体宽度
 		dfDpr = de.getAttribute('data-dpr') || '',
-		dpr = !!dfDpr ? dfDpr : G.devicePixelRatio || 1,
+		dpr = !!dfDpr ? dfDpr : G.devicePixelRatio ? Math.floor(G.devicePixelRatio) : 1,
 		scale = 1 / dpr,
 		flexible = lib.flexible || (lib.flexible = {}),
 		tid = null,
 		dt = deviceType(),
+		pcStyleEle = null, //给pc添加的样式元素
 		getW = function(){return de.getBoundingClientRect().width / dpr}; // 宽度
 
 	/* 在红米上，screen的宽等于Rect的宽度，screen取值有问题，使用Rect取值；在安卓中，QQ浏览器、QQwebview、微信webview、支付宝webview、Nexus5x等部分机型里的Rect的宽度取值小于准确值，使用screen取值 */
@@ -23,7 +24,7 @@
 	// 为html元素添加data-dpr属性
 	de.setAttribute('data-dpr', dpr);
 	// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
-	dt === 'pc' && addStylesheetRules('::-webkit-scrollbar{display: none !important}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 * dpr +'px !important;');
+	dt === 'pc' && (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 * dpr +'px !important;'));
 
 	// 缩放
 	vp = doc.createElement('meta');
@@ -78,6 +79,7 @@
 	};
 	// 设置根字体大小
 	function trans(){
+		// G.devicePixelRatio !== dpr && dprChange();
 		G.devicePixelRatio !== dpr && G.location.reload();
 		var w = getW();
 		w > maxW && (w = maxW);
@@ -85,6 +87,14 @@
 		de.style.fontSize = rem + 'px';
 		flexible.rem = G.rem = rem;
 	};
+	/* dpr改变时执行 （这个也行，就看怎么选了）
+	function dprChange(){
+		dpr = !!dfDpr ? dfDpr : G.devicePixelRatio || 1;
+		scale = 1 / dpr;
+		de.setAttribute('data-dpr', dpr);
+		vp.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+		dt === 'pc' ? de.firstElementChild.appendChild(pcStyleEle) : de.firstElementChild.removeChild(pcStyleEle);
+	}; */
 	// 设备检测
 	function deviceType(){
 		var ua = G.navigator.appVersion,
@@ -99,5 +109,6 @@
 		style.type = 'text/css';
 		style.styleSheet && style.styleSheet.cssText ? style.styleSheet.cssText = css : style.appendChild(doc.createTextNode(css));
 		head.appendChild(style);
+		return style;
 	};
 })(window, window.lib || (window.lib = {}));
