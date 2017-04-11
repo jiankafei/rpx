@@ -15,8 +15,10 @@
 该版本修复了某些机型宽度获取不准确的bug，具体如下：
  
  1. 在红米上，dpr不为1时，screen的宽度还是等于Rect的宽度，screen取值有问题，使用Rect取得准确值；
- 2. 在安卓中，QQ浏览器、QQwebview、微信webview、支付宝webview、Nexus5x等部分机型里的Rect的宽度取值小于准确值，使用screen取得准确值；
+ 2. 在安卓中，QQ浏览器、QQwebview、微信webview、支付宝webview、Nexus5x等部分机型里的Rect的宽度取值小于准确值，但是最后的计算显示的大小却是相等的，也许这些代理在内部做了优化，在这里只是提下这个，没问题；
  3. pc和其他机型使用Rect取值；
+ 
+综上，全部使用 Rect取值
  
 ## 依赖
  无
