@@ -79,8 +79,8 @@
 	};
 	// 设置根字体大小
 	function trans(){
-		// G.devicePixelRatio !== dpr && dprChange();
-		G.devicePixelRatio !== dpr && G.location.reload();
+		// (G.devicePixelRatio ? Math.floor(G.devicePixelRatio) : 1) !== dpr && dprChange();
+		(G.devicePixelRatio ? Math.floor(G.devicePixelRatio) : 1) !== dpr && G.location.reload();
 		var w = getW();
 		w > maxW && (w = maxW);
 		var rem = G.parseFloat(dpr * w * 100 / ds);
