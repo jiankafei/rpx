@@ -11,7 +11,7 @@
 		ds = 750, // 设计稿大小
 		maxW = 540, // 最大字体宽度
 		dfDpr = de.getAttribute('data-dpr') || '',
-		dpr = !!dfDpr ? dfDpr : G.devicePixelRatio ? Math.floor(G.devicePixelRatio) : 1,
+		dpr = !!dfDpr ? dfDpr : G.devicePixelRatio || 1,
 		scale = 1 / dpr,
 		flexible = lib.flexible || (lib.flexible = {}),
 		tid = null,
@@ -79,8 +79,8 @@
 	};
 	// 设置根字体大小
 	function trans(){
-		// (G.devicePixelRatio ? Math.floor(G.devicePixelRatio) : 1) !== dpr && dprChange();
-		(G.devicePixelRatio ? Math.floor(G.devicePixelRatio) : 1) !== dpr && G.location.reload();
+		// (G.devicePixelRatio || 1) !== dpr && dprChange();
+		(G.devicePixelRatio || 1) !== dpr && G.location.reload();
 		var w = getW();
 		w > maxW && (w = maxW);
 		var rem = G.parseFloat(dpr * w * 100 / ds);
