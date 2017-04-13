@@ -1,4 +1,4 @@
-/*flex*/
+@charset "utf-8";
 /*伸缩容器*/
 .flex-box{
 	display: -moz-box !important;
@@ -24,7 +24,7 @@
 	flex-direction: row;
 }
 .flex-row-reverse{
-	-webkit-box-pack: end;/*这里改变对齐方式*/
+	-webkit-box-pack: end; /*这里改变对齐方式*/
 	-webkit-box-orient: horizontal;-webkit-box-direction: reverse;
 	-moz-flex-direction: row-reverse;
 	-ms-flex-direction: row-reverse;
@@ -40,7 +40,7 @@
 	flex-direction: column;
 }
 .flex-col-reverse{
-	-webkit-box-pack: end;/*这里改变对齐方式*/
+	-webkit-box-pack: end; /*这里改变对齐方式*/
 	-webkit-box-orient: vertical;-webkit-box-direction: reverse;
 	-moz-flex-direction: column-reverse;
 	-ms-flex-direction: column-reverse;
@@ -55,7 +55,7 @@
 	flex-wrap: wrap;
 }
 .flex-wrap-reverse{
-	-webkit-box-lines: multiple;/*旧版没有reverse*/
+	-webkit-box-lines: multiple; /*旧版没有reverse*/
 	-ms-flex-wrap: wrap-reverse;
 	-webkit-flex-wrap: wrap-reverse;
 	flex-wrap: wrap-reverse;

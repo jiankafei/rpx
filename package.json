@@ -1,0 +1,9 @@
+{
+  "name": "flexible",
+  "version": "1.2.0",
+  "description": "移动端web高清屏显示及伸缩布局方案",
+  "main": "index.js",
+  "repository": "https://github.com/jiankafei/flexible.git",
+  "author": "Zr",
+  "license": "MIT"
+}
