@@ -24,7 +24,7 @@
 	// 为html元素添加data-dpr属性
 	de.setAttribute('data-dpr', dpr);
 	// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
-	dt === 'pc' && (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 * dpr +'px !important;'));
+	dt === 'pc' && (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 * dpr +'px !important;}'));
 
 	// 缩放
 	vp = doc.createElement('meta');
