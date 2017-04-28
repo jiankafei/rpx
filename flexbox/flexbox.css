@@ -1,0 +1,263 @@
+@charset "utf-8";
+/*伸缩容器*/
+.flex-box{
+	display: -moz-box !important;
+	display: -ms-flexbox !important;
+	display: -webkit-box !important;
+	display: -webkit-flex !important;
+	display: flex !important;
+}
+.flex-inline-box{
+	display: -ms-inline-flexbox !important;
+	display: -moz-inline-box !important;
+	display: -webkit-inline-box !important;
+	display: -moz-inline-flex !important;
+	display: -webkit-inline-flex !important;
+	display: inline-flex !important;
+}
+/*水平伸缩容器*/
+.flex-row{
+	-webkit-box-orient: horizontal;-webkit-box-direction: normal;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+}
+.flex-row-reverse{
+	-webkit-box-pack: end; /*这里改变对齐方式*/
+	-webkit-box-orient: horizontal;-webkit-box-direction: reverse;
+	-moz-flex-direction: row-reverse;
+	-ms-flex-direction: row-reverse;
+	-webkit-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+/*垂直伸缩容器*/
+.flex-col{
+	-webkit-box-orient: vertical;-webkit-box-direction: normal;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+.flex-col-reverse{
+	-webkit-box-pack: end; /*这里改变对齐方式*/
+	-webkit-box-orient: vertical;-webkit-box-direction: reverse;
+	-moz-flex-direction: column-reverse;
+	-ms-flex-direction: column-reverse;
+	-webkit-flex-direction: column-reverse;
+	flex-direction: column-reverse;
+}
+/*换行*/
+.flex-wrap{
+	-webkit-box-lines: multiple;
+	-ms-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.flex-wrap-reverse{
+	-webkit-box-lines: multiple; /*旧版没有reverse*/
+	-ms-flex-wrap: wrap-reverse;
+	-webkit-flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;
+}
+/*主轴对齐*/
+.flex-justify-start{
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	-webkit-flex-pack: start;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+.flex-justify-center{
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+.flex-justify-end{
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+.flex-justify-between{
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	-webkit-flex-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+.flex-justify-around{
+	/*-webkit-box-pack老版本没有around*/
+	-ms-flex-pack: distribute;
+	-webkit-flex-pack: distribute;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+/*侧轴对齐*/
+.flex-align-start{
+	-webkit-box-align: start;
+	-webkit-flex-align: start;
+	-webkit-align-content: flex-start;
+	-ms-flex-line-pack: start;
+	align-content: flex-start;
+}
+.flex-align-center{
+	-webkit-box-align: center;
+	-webkit-flex-align: center;
+	-webkit-align-content: center;
+	-ms-flex-line-pack: center;
+	align-content: center;
+}
+.flex-align-end{
+	-webkit-box-align: end;
+	-webkit-flex-align: end;
+	-webkit-align-content: flex-end;
+	-ms-flex-line-pack: end;
+	align-content: flex-end;
+}
+.flex-align-between{
+	/*旧版本没有*/
+	-webkit-align-content: space-between;
+	-ms-flex-line-pack: justify;
+	align-content: space-between;
+}
+.flex-align-around{
+	/*旧版本没有*/
+	-webkit-align-content: space-around;
+	-ms-flex-line-pack: distribute;
+	align-content: space-around;
+}
+.flex-align-stretch{
+	-webkit-box-align: stretch;
+	-webkit-flex-align: stretch;
+	-webkit-align-content: stretch;
+	-ms-flex-line-pack: stretch;
+	align-content: stretch;
+}
+/*侧轴单行对齐*/
+.flex-alignItem-start{
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	-webkit-flex-align: start;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+}
+.flex-alignItem-center{
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.flex-alignItem-end{
+	-webkit-box-align: end;
+	-ms-flex-align: end;
+	-webkit-flex-align: end;
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+}
+.flex-alignItem-stretch{
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	-webkit-flex-align: stretch;
+	-webkit-align-items: stretch;
+	align-items: stretch;
+}
+/*子元素属性*/
+/*align-self老版本都没有*/
+.flex-alignSelf-start{
+	-ms-flex-item-align: start;
+	-webkit-flex-item-align: start;
+	-webkit-align-self: flex-start;
+	align-self: flex-start;
+}
+.flex-alignSelf-center{
+	-ms-flex-item-align: center;
+	-ms-grid-row-align: center;
+	-webkit-flex-item-align: center;
+	-webkit-align-self: center;
+	align-self: center;
+}
+.flex-alignSelf-end{
+	-ms-flex-item-align: end;
+	-webkit-flex-item-align: end;
+	-webkit-align-self: flex-end;
+	align-self: flex-end;
+}
+.flex-alignSelf-stretch{
+	-ms-flex-item-align: stretch;
+	-ms-grid-row-align: stretch;
+	-webkit-flex-item-align: stretch;
+	-webkit-align-self: stretch;
+	align-self: stretch;
+}
+/*flex1*/
+.flex-1{
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	-moz-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.flex-grow-1{
+	-webkit-box-flex: 1;
+	-moz-flex-grow: 1;
+	-ms-flex-positive: 1;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+}
+.flex-shrink-1{
+	-webkit-box-flex: 1;
+    -moz-flex-shrink: 1;
+    -ms-flex-negative: 1;
+	-webkit-flex-shrink: 1;
+	flex-shrink: 1;
+}
+/*flex-none*/
+.flex-none{
+	-webkit-box-flex: 0;
+	-moz-flex: none;
+	-ms-flex: none;
+	-webkit-flex: none;
+	flex: none;
+}
+/*flex兼容
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	注：数值自定
+*/
+/*flex-grow兼容
+	-webkit-box-flex: 1.0;
+	-moz-flex-grow: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	注：数值自定
+*/
+/*flex-shrink兼容
+	-webkit-box-flex: 1.0;
+    -moz-flex-shrink: 1;
+    -ms-flex-negative: 1;
+	-webkit-flex-shrink: 1;
+	flex-shrink: 1;
+	注：数值自定
+*/
+/*flex-basis不全兼容
+	-ms-flex-preferred-size:;
+	-webkit-flex-basis:;
+	flex-basis:;
+*/
+/*order兼容
+	-webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+	-moz-order: 1;
+	-webkit-order: 1;
+	order: 1;
+	注：数值自定
+*/
