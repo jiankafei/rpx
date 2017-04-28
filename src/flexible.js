@@ -106,7 +106,7 @@
 	// 判断是否缩放
 	window.useZoom = useZoom();
 	function useZoom(){
-		return /iPhone|iPad|iPod/gi.test(ua) || typeof window.chrome === 'object' || (/Chrome/gi.test(ua) && ua.match(/Chrome\/\d\d/gi)[0].match(/\d\d/)[0] >= 40);
+		return /iPhone|iPad|iPod/gi.test(ua) || typeof window.chrome === 'object';
 	};
 	// 添加css规则
 	function addStylesheetRules(css) {
