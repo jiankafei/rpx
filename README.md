@@ -1,6 +1,10 @@
 # flexible.js
  移动端高清屏显示方案
 
+## Demo
+
+[demo](https://jiankafei.github.io/flexible/)
+
 ## 版本
 
  **V1.4**
