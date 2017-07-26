@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<title>王勒测试</title>
+	<title>Demo</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Zr">
 	<meta name="description" content="练习">
@@ -13,7 +13,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<!-- 在webapp应用下状态条的颜色 -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="theme-color" content="#23c683">
+	<meta name="theme-color" content="#fff">
 	<!-- 是否自动探测电话号码 -->
 	<meta name="format-detection" content="telephone=no, email=no">
 	<meta http-equiv="x-rim-auto-match" content="none">
@@ -59,7 +59,10 @@
 		background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 	}
 	.body-wrap p{
-		padding: .3rem;
+		padding: .2rem 0;
+	}
+	.body-wrap p+p{
+		padding-top: 0;
 	}
 </style>
 </head>
@@ -67,7 +70,18 @@
 	<header class="main-header">儿歌三百首</header>
 	<main class="main-body flex-1 flex-box flex-col">
         <header class="body-header flex-none">《沁园春·雪》</header>
-        <section class="body-wrap flex-1">
+        <section class="body-wrap flex-1 pes">
+			<p>北国风光，千里冰封，万里雪飘。</p>
+			<p>望长城内外，惟余莽莽；</p>
+			<p>大河上下，顿失滔滔。</p>
+			<p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+			<p>须晴日，看红装素裹，分外妖娆。</p>
+			<p>江山如此多娇，引无数英雄竞折腰。</p>
+			<p>惜秦皇汉武，略输文采；</p>
+			<p>唐宗宋祖，稍逊风骚。</p>
+			<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+			<p>俱往矣，数风流人物，还看今朝。</p>
+			<hr>
 			<p>北国风光，千里冰封，万里雪飘。</p>
 			<p>望长城内外，惟余莽莽；</p>
 			<p>大河上下，顿失滔滔。</p>
@@ -79,12 +93,14 @@
 			<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
 			<p>俱往矣，数风流人物，还看今朝。</p>
 		</section>
-        <footer class="body-footer flex-none">作者.毛泽东</footer>
+        <footer class="body-footer flex-none">作者-毛泽东</footer>
     </main>
     <footer class="main-footer">儿歌三百首</footer>
 <script src="https://alloyteam.github.io/AlloyLever/alloy-lever.js"></script>
+<script src="https://jiankafei.github.io/preventExcessiveScroll/pes2.js"></script>
 <script type="text/javascript">
 	console.log('screen: ' + ~~window.screen.width, 'clientRect: ' + ~~(document.documentElement.getBoundingClientRect().width / window.devicePixelRatio), 'dpr: ' + window.devicePixelRatio, 'k: ' + window.devicePixelRatio * 100 / 750, 'rem: ' + window.rem);
+	var p = pes('.pes');
 </script>
 </body>
 </html>
