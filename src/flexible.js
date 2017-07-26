@@ -7,7 +7,7 @@
 	'use strict';
 	var doc = G.document,
 		de = doc.documentElement,
-		vp = doc.createElement('meta'),
+		vp = doc.querySelector('meta[name=viewport]'),
 		ua = G.navigator.appVersion,
 		ds = 750, // 设计稿大小
 		maxW = 540, // 最大字体宽度
@@ -27,11 +27,17 @@
 	// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
 	dt === 'pc' && (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 * dpr +'px !important;}'));
 
+	// 添加 vp 元素
+	if (!vp) {
+		var hd = de.firstElementChild,
+			tempEle = null;
+		vp = doc.createElement('meta');
+		hd ? hd.appendChild(vp) : (tempEle = doc.createElement('div'), tempEle.appendChild(vp), doc.write(tempEle.innerHTML));
+	}
+
 	// 缩放
 	vp.setAttribute('name', 'viewport');
-	vp.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
-	var tempEle = null;
-	de.firstElementChild ? de.firstElementChild.appendChild(vp) : (tempEle = doc.createElement('div'), tempEle.appendChild(vp), doc.write(tempEle.innerHTML));
+	vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
 
 	// 改变窗口
 	G.addEventListener('resize', function () {
@@ -94,7 +100,7 @@
 		dpr = useZoom() ? !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1 : 1;
 		scale = 1 / dpr;
 		de.setAttribute('data-dpr', dpr);
-		vp.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+		vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
 		dt === 'pc' ? de.firstElementChild.appendChild(pcStyleEle) : de.firstElementChild.removeChild(pcStyleEle);
 	}; */
 	// 设备检测
