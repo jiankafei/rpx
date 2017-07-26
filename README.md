@@ -13,7 +13,7 @@
  1. 先判断是否是iPhone，Chrome，如果通过，则再看第二条，否则dpr设置为1；
  2. 当设备的dpr为小数时，则设置为1，否则为设备真实dpr；
  3. 最好在head里自行添加以下代码，并且在flexible.js之前，这样在多数低版本安卓手机里会表现正常；
-	`<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">`
+	`<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
 
  注：开发者可以设置dpr，但是只在符合第一条的条件下才会生效。
 

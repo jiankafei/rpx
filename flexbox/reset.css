@@ -45,30 +45,47 @@ input:autofill{
   display: none;
 }
 /* AlloyLever */
-[data-nuclearid] *{
-	font-size: .24rem !important;
+#__vconsole{
+	font-size: .26rem !important;
 }
-[data-nuclearid] .at-entry{
-	width: 1.4rem !important;
-	height: .4rem !important;
-	line-height: .4rem !important;
-	border-radius: .2rem .08rem !important;
-	bottom: .4rem !important;
+#__vconsole .vc-switch{
 	right: .1rem !important;
+	bottom: .1rem !important;
+	padding: .12rem .2rem !important;
+	border-radius: .06rem !important;
+	font-size: .26rem !important;
 }
-[data-nuclearid] .at-tabs{
-	height: .4rem !important;
+#__vconsole .vc-tabbar{
+	height: .5rem !important;
+	border: none !important;
+	outline: 1px solid #d9d9d9;
 }
-[data-nuclearid] .at-tab{
-	min-width: .5rem !important;
-	line-height: .4rem !important;
-	padding: 0 .1rem !important;
+#__vconsole .vc-tabbar .vc-tab{
+	line-height: .5rem !important;
 }
-[data-nuclearid] .at-content{
-	top: .4rem !important;
-	bottom: .4rem !important;
+#__vconsole .vc-topbar{
+	height: .5rem !important;
 }
-[data-nuclearid] .at-toolbar{
-	height: .4rem !important;
-	line-height: .4rem !important;
+#__vconsole .vc-topbar .vc-toptab{
+	line-height: .5rem !important;
+	padding: 0 .2rem !important;
+}
+#__vconsole .vc-content{
+	top: .5rem !important;
+	bottom: .5rem !important;
+}
+#__vconsole .vc-content.vc-has-topbar{
+	top: 1rem !important;
+}
+#__vconsole .vc-toolbar{
+	line-height: .5rem !important;
+}
+#__vconsole .vc-logbox .vc-item .vc-item-meta{
+	width: .6rem !important;
+}
+#__vconsole .vc-logbox form.vc-cmd{
+	display: none !important;
+}
+#__vconsole .vc-logbox .vc-log:empty:before{
+	font-size: .3rem !important;
 }

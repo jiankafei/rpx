@@ -37,7 +37,7 @@
 
 	// 缩放
 	vp.setAttribute('name', 'viewport');
-	vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+	vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 
 	// 改变窗口
 	G.addEventListener('resize', function () {
@@ -100,7 +100,7 @@
 		dpr = useZoom() ? !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1 : 1;
 		scale = 1 / dpr;
 		de.setAttribute('data-dpr', dpr);
-		vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+		vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 		dt === 'pc' ? de.firstElementChild.appendChild(pcStyleEle) : de.firstElementChild.removeChild(pcStyleEle);
 	}; */
 	// 设备检测
