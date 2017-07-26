@@ -28,22 +28,44 @@
 <link rel="stylesheet" href="./flexbox/reset.css">
 <link rel="stylesheet" href="./flexbox/flexbox.css">
 <style type="text/css">
-	header, section, footer{
-		line-height: 2;
-		border-bottom: 1px solid red;
+	body{
 		text-align: center;
 		font-size: .3rem;
+	}
+	header{
+		border-bottom: 1px solid red;
+	}
+	footer{
+		border-top: 1px solid red;
+	}
+	header, footer{
+		height: .1rem;
+		line-height: .1rem;
+	}
+	.body-wrap p+p{
+		margin-top: .4rem;
 	}
 </style>
 </head>
 <body class="flex-box flex-col">
-	<header class="main-header">这里是头部</header>
+	<header class="main-header">儿歌三百首</header>
 	<main class="main-body flex-1 flex-box flex-col">
-        <section class="body-header flex-none">这里是内容头部</section>
-        <section class="body-wrap flex-1">这里是内容主体</section>
-        <section class="body-footer flex-none">这里是内容尾部</section>
+        <header class="body-header flex-none">《沁园春·雪》</header>
+        <section class="body-wrap flex-1">
+			<p>北国风光，千里冰封，万里雪飘。</p>
+			<p>望长城内外，惟余莽莽；</p>
+			<p>大河上下，顿失滔滔。</p>
+			<p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+			<p>须晴日，看红装素裹，分外妖娆。</p>
+			<p>江山如此多娇，引无数英雄竞折腰。</p>
+			<p>惜秦皇汉武，略输文采；</p>
+			<p>唐宗宋祖，稍逊风骚。</p>
+			<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+			<p>俱往矣，数风流人物，还看今朝。</p>
+		</section>
+        <footer class="body-footer flex-none">作者.毛泽东</footer>
     </main>
-    <footer class="main-footer">这里是尾部</footer>
+    <footer class="main-footer">儿歌三百首</footer>
 <script src="https://alloyteam.github.io/AlloyLever/alloy-lever.js"></script>
 <script type="text/javascript">
 	console.log('screen: ' + ~~window.screen.width, 'clientRect: ' + ~~(document.documentElement.getBoundingClientRect().width / window.devicePixelRatio), 'dpr: ' + window.devicePixelRatio, 'k: ' + window.devicePixelRatio * 100 / 750, 'rem: ' + window.rem);
