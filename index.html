@@ -91,7 +91,13 @@
     <footer class="main-footer">儿歌三百首</footer>
 <script src="https://jiankafei.github.io/preventExcessiveScroll/pes.js"></script>
 <script type="text/javascript">
-	console.log('screen: ' + ~~window.screen.width, 'clientRect: ' + ~~(document.documentElement.getBoundingClientRect().width / window.dpr), 'dpr: ' + window.dpr,'realDpr: ' + window.devicePixelRatio, 'k: ' + window.dpr * 100 / 750, 'rem: ' + window.rem);
+	console.log('realDpr: ' + window.devicePixelRatio);
+	console.log('dpr: ' + window.dpr);
+	console.log('screen: ' + ~~window.screen.width);
+	console.log('clientRect: ' + ~~(document.documentElement.getBoundingClientRect().width / window.dpr));
+	console.log('k: ' + window.dpr * 100 / 750);
+	console.log('rem: ' + window.rem);
+
 	var p = pes('.pes');
 </script>
 </body>
