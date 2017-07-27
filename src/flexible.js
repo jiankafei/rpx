@@ -39,6 +39,8 @@
 	vp.setAttribute('name', 'viewport');
 	vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 	if(getW() === 980) {
+		dpr = 1;
+		scale = 1;
 		vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
 	}
 
@@ -105,6 +107,8 @@
 		de.setAttribute('data-dpr', dpr);
 		vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 		if(getW() === 980) {
+			dpr = 1;
+			scale = 1;
 			vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
 		}
 		dt === 'pc' ? de.firstElementChild.appendChild(pcStyleEle) : de.firstElementChild.removeChild(pcStyleEle);
