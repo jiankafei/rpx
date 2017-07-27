@@ -8,20 +8,19 @@
 ## 从1.0到1.5版本变化的说明
 
  1.0版本
- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
- <script src="./flexible.js"></script>
+ `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+ `<script src="./flexible.js"></script>`
  宽度获取使用 window.screen.width，但后来发现在低端 Android 上该值会等于 980，于是在1.0版本之后抛弃；
  对dpr没有做任何处理；
 
  1.1-1.4版本
- <!-- 去掉了 meta>name=viewport 标签，在内部动态添加，并且做了兼容外部有meta>name=viewport标签的处理 -->
- <script src="./flexible.js"></script>
- 去掉了 meta>name=viewport ，那么获取宽度只能使用 document.documentElement.clientWidth / window.devicePixelRatio ，但其实这个值是不等于真实的 window.screen.width 的。但大部分浏览器似乎在内部做了这方面的容差，除了QQ浏览器；
+ `<script src="./flexible.js"></script>`
+ 去掉了 meta>name=viewport ，在内部动态添加，并且做了兼容外部有meta>name=viewport标签的处理。那么获取宽度只能使用 document.documentElement.clientWidth / window.devicePixelRatio ，但其实这个值是不等于真实的 window.screen.width 的。但大部分浏览器似乎在内部做了这方面的容差，除了QQ浏览器；
  对dpr做了处理，小数的dpr设置为1；
 
  1.5版本
- <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
- <script src="./flexible.js"></script>
+ `<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+ `<script src="./flexible.js"></script>`
  那怎样才能准确的拿到宽度呢？我这里是直接使用 document.documentElement.clientWidth 获取的，是不是很奇怪呢，秘诀就在于meta>name=viewport。如果页面首先应用了这个meta标签，那么 document.documentElement.clientWidth === window.screen.width 就是true了。然后再动态修改这个 meta 标签的缩放值就行了。最后差不多回到了1.0版本。
  对dpr做了处理，小数的dpr设置为1；
 
