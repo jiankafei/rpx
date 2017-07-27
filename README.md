@@ -8,7 +8,7 @@
 ## 从1.0到1.5版本变化的说明
 
  1.0版本
- `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+ `<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
  `<script src="./flexible.js"></script>`
  宽度获取使用 window.screen.width，但后来发现在低端 Android 上该值会等于 980，于是在1.0版本之后抛弃；
  对dpr没有做任何处理；
@@ -29,7 +29,7 @@
 ## 版本
  **V1.5**
  1. 开发者需要引入一段meta标签，还有该js文件；
- `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+ `<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
  2. 当设备的dpr为小数时，则设置为1，否则为设备真实dpr；
 
  注：开发者可以在html元素上设置 data-dpr 来自定义dpr，这只是一个补救措施，用来在特殊性况下使用，因此不推荐开发者使用；
@@ -104,7 +104,7 @@
 
  ## 使用
 1.首先手动添加 meta>name=viewport 标签
-	`<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+	`<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
 
 2.放到 head 所有资源的前面；
 
