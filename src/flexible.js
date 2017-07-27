@@ -28,14 +28,6 @@
 	// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
 	dt === 'pc' && (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 * dpr +'px !important;}'));
 
-	// 添加 vp 元素
-	if (!vp) {
-		var hd = de.firstElementChild,
-			tempEle = null;
-		vp = doc.createElement('meta');
-		hd ? hd.appendChild(vp) : (tempEle = doc.createElement('div'), tempEle.appendChild(vp), doc.write(tempEle.innerHTML));
-	}
-
 	// 缩放
 	vp.setAttribute('name', 'viewport');
 	vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
