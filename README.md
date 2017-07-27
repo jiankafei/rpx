@@ -5,45 +5,35 @@
 
 [demo](https://jiankafei.github.io/flexible/)
 
+## 从1.0到1.5版本变化的说明
+
+ 1.0版本
+ <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+ <script src="./flexible.js"></script>
+ 宽度获取使用 window.screen.width，但后来发现在低端 Android 上该值会等于 980，于是在1.0版本之后抛弃；
+ 对dpr没有做任何处理；
+
+ 1.1-1.4版本
+ <!-- 去掉了 meta>name=viewport 标签，在内部动态添加，并且做了兼容外部有meta>name=viewport标签的处理 -->
+ <script src="./flexible.js"></script>
+ 去掉了 meta>name=viewport ，那么获取宽度只能使用 document.documentElement.clientWidth / window.devicePixelRatio ，但其实这个值是不等于真实的 window.screen.width 的。但大部分浏览器似乎在内部做了这方面的容差，除了QQ浏览器；
+ 对dpr做了处理，小数的dpr设置为1；
+
+ 1.5版本
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+ <script src="./flexible.js"></script>
+ 那怎样才能准确的拿到宽度呢？我这里是直接使用 document.documentElement.clientWidth 获取的，是不是很奇怪呢，秘诀就在于meta>name=viewport。如果页面首先应用了这个meta标签，那么 document.documentElement.clientWidth === window.screen.width 就是true了。然后再动态修改这个 meta 标签的缩放值就行了。最后差不多回到了1.0版本。
+ 对dpr做了处理，小数的dpr设置为1；
+
+ 注：dpr为小数为什么要强行设置为1？因为在一些低端 Android 和谷歌手机上会出现尺寸计算错误的问题，就是明明 dpr=2.5 但在 rem 的计算上却当作 2.0来处理，导致尺寸出错，所以只能设置为1。
+
 ## 版本
+ **V1.5**
+ 1. 开发者需要引入一段meta标签，还有该js文件；
+ `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+ 2. 当设备的dpr为小数时，则设置为1，否则为设备真实dpr；
 
- **V1.4**
-
- 1. 当设备的dpr为小数时，则设置为1，否则为设备真实dpr；
- 2. 为了兼容所有的机型，强制在head里自行添加以下代码，并且在flexible.js之前，这样在多数低版本安卓手机里会表现正常；
-	`<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
-
- 注：开发者可以设置dpr，但是只在符合第一条的条件下才会生效。
-
- **V1.3**
-
- 该版本对项目做了整理；
-
- 在dpr的获取上，生成了两种方案：
- 1. 在任何设备上获取的drp是多少就是多少，不取整，没有drp的默认为1。在使用px单位的字体大小的时候，媒体查询的书写可以使用‘> <’的区间判定方式来进行适配。问题就是字体大小在dpr为小数的设备上会偏大或者偏小（取决于媒体查询怎么写了）。如果使用rem单位的字体大小则不存在这个问题。至于为什么不取整，在V1.2的版本日志中有说明，自行查看。该方案的文件在standard文件夹里；
- 2. 当设备的dpr为小数时，则设置为1。算是降级处理吧。好处是开发者使用px单位的字体时使用媒体查询设置字体大小就是非常准确的。该方案的文件在demotion文件夹里；
-
- 注：推荐使用第二种方案，因为在一些低端安卓机里，dpr为小数时，宽度不能正确获取，甚至同一设备的不同浏览器器获取的宽度也不一样，并且缩放也不按照设置的指定比例缩放，所以为了兼容，最好使用第二种方案。
-
- 添加了demo。
-
- **V1.2**
-
- 该版本添加了屏幕旋转事件的监听；
-
- 设备改变时，也就是dpr改变时，刷新页面，对测试比较友好；
-
- dpr为小数时，我并没有取整，因为在测试时发现，如果取整则在某些android机型中的某些浏览器下会出现缩放错误的现象。
-
- **V1.1**
-
-该版本修复了某些机型宽度获取不准确的bug，具体如下：
-
- 1. 在红米上，dpr不为1时，screen的宽度还是等于Rect的宽度，screen取值有问题，使用Rect取得准确值；
- 2. 在安卓中，QQ浏览器、QQwebview、微信webview、支付宝webview、Nexus5x等部分机型里的Rect的宽度取值小于准确值，但是最后的计算显示的大小却是相等的，也许这些代理在内部做了优化，在这里只是提下这个，没问题；
- 3. pc和其他机型使用Rect取值；
-
-综上，全部使用 Rect取值
+ 注：开发者可以在html元素上设置 data-dpr 来自定义dpr，这只是一个补救措施，用来在特殊性况下使用，因此不推荐开发者使用；
 
 ## 依赖
  无
@@ -66,8 +56,6 @@
 
 * 尺寸单位使用 `rem`
 
-* 可以不在外部写 `<meta name=viewport>` 标签
-
 * 在布局时，一定要使用响应式布局，因为最大字体宽度为 `540`。建议`flexbox`布局
 
 * html的字体大小不能设置有`百分比`，会有bug，详情见 [rem](http://caniuse.com/#search=rem)
@@ -80,6 +68,7 @@
 	[v-tap](https://github.com/MeCKodo/vue-tap)
 
 * 条件有限，测试的机器不多，如果某位仁兄在某些机器上发现问题，提Issue
+
 * 推荐使用 postcss 的 autoprefixer 插件来实现伸缩盒模型布局的css兼容书写。如果不使用插件，可以使用该项目的 flexbox.css 类库，该类库定义好了类名，只需在使用的元素上添加类名即可，具体查看源文件
 
 * 项目中部分内容参考淘宝的开源项目：
@@ -102,7 +91,7 @@
 
 3. 单位换算使用最大宽度对应最大字体100px的比例关系，因此，只需要把px单位的尺寸除以100，也就是左移两个小数点，就可以得到rem单位的尺寸了。
 
-4. 在安卓机上也实现了高清显示，这一条感觉既是优势也是劣势，具体看劣势；
+4. 在大部分安卓机上也实现了高清显示；
 
 5. 对于pc上的显示，固定到414px，并且对定位fixed的元素也做了处理，会有更好的显示效果。当然，我没有做自动的处理，也不应该这么做，开发者需要自己在定位fixed的元素上添加fixed类名，这样就不会出现加载页面成功后的尺寸变化问题，也算是优化体验吧；
 
@@ -110,22 +99,25 @@
 
 1. 不兼容以后的 vw 单位，说实话我觉的那种兼容还不如直接使用css预解析器，因此我不看好兼容vw单位；
 
-2. 在高端安卓机上的高清显示都没有问题，目前测试的低端机也都没有问题，但是安卓机的阵营有点混乱，各种非整数dpr，各种未知低端机bug（猜测）
+2. 在高端安卓机上的高清显示都没有问题，目前测试的低端机也都没有问题；
 
 3. 对于字体点阵的了解我知之甚少，所以我也把这个列为我的方案的劣势。lib-flexible考虑了这一点，它希望开发者使用px单位的字体。而我还是希望使用rem单位的，因为第一点，有最大字体宽度的限制，第二点，我做的几个项目，字体点阵的影响感觉并不大，显示都很不错（追求极致和有原则的开发者或许会说）
 
  ## 使用
-1.最好 内联 放到 head 所有资源的前面；
+1.首先手动添加 meta>name=viewport 标签
+	`<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
 
-2.改变 ds 为设计稿大小，默认750px；
+2.放到 head 所有资源的前面；
 
-3.单位换算 yrem = xpx / 100；
+3.改变 ds 为设计稿大小，默认750px；
 
-4.使用单位为px的字体时，推荐使用stylus等css预处理器的@mixin功能完成；
+4.单位换算 yrem = xpx / 100；
 
-5.对于定位fixed的元素，建议加上fixed类名；
+5.使用单位为px的字体时，推荐使用stylus等css预处理器的@mixin功能完成；
 
-6.如果手动配置 dpr，只需在 html 元素上添加 data-dpr 属性即可。
+6.对于定位fixed的元素，建议加上fixed类名；
+
+7.如果手动配置 dpr，只需在 html 元素上添加 data-dpr 属性即可。
 
 ## 接口
 
