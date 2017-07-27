@@ -21,7 +21,7 @@
 		pcStyleEle = null, //给pc添加的样式元素
 		getW = function(){return de.getBoundingClientRect().width / dpr}; // 宽度
 
-	console.log(de.getBoundingClientRect().width);
+	console.log(de.getBoundingClientRect().width, getW());
 	// 为html元素添加data-dpr属性
 	de.setAttribute('data-dpr', dpr);
 
