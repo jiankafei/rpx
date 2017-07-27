@@ -19,7 +19,7 @@
 		tid = null,
 		dt = deviceType(),
 		pcStyleEle = null, //给pc添加的样式元素
-		getW = function(){return de.getBoundingClientRect().width}; // 宽度
+		w = de.getBoundingClientRect().width; // 宽度
 
 	console.log(de.getBoundingClientRect().width);
 	// 为html元素添加data-dpr属性
@@ -81,8 +81,8 @@
 		var realDPR = G.devicePixelRatio,
 			tempDpr = realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1;
 		tempDpr !== dpr && G.location.reload();
-		var w = getW();
 		w > maxW && (w = maxW);
+		console.log('w: '+w);
 		var rem = G.parseFloat(dpr * w * 100 / ds);
 		de.style.fontSize = rem + 'px';
 		flexible.rem = G.rem = rem;
