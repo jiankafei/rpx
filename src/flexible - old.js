@@ -13,7 +13,7 @@
 		maxW = 540, // 最大字体宽度
 		realDPR = G.devicePixelRatio,
 		dfDpr = de.getAttribute('data-dpr') || '',
-		dpr = !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1,
+		dpr = useZoom() ? !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1 : 1,
 		scale = 1 / dpr,
 		flexible = lib.flexible || (lib.flexible = {}),
 		tid = null,
@@ -37,10 +37,7 @@
 
 	// 缩放
 	vp.setAttribute('name', 'viewport');
-	vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
-	if(getW() === 980) {
-		vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
-	}
+	vp.setAttribute('content', 'initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 
 	// 改变窗口
 	G.addEventListener('resize', function () {
@@ -89,7 +86,7 @@
 	// 设置根字体大小
 	function trans(){
 		var realDPR = G.devicePixelRatio,
-			tempDpr = realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1;
+			tempDpr = useZoom() ? realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1 : 1;
 		// tempDpr !== dpr && dprChange();
 		tempDpr !== dpr && G.location.reload();
 		var w = getW();
@@ -100,13 +97,10 @@
 	};
 	/* dpr改变时执行 （这个也行，就看怎么选了）
 	function dprChange(){
-		dpr = !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1;
+		dpr = useZoom() ? !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1 : 1;
 		scale = 1 / dpr;
 		de.setAttribute('data-dpr', dpr);
-		vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
-		if(getW() === 980) {
-			vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
-		}
+		vp.setAttribute('content', 'initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 		dt === 'pc' ? de.firstElementChild.appendChild(pcStyleEle) : de.firstElementChild.removeChild(pcStyleEle);
 	}; */
 	// 设备检测
@@ -116,10 +110,10 @@
 		return dt;
 	};
 	// 判断是否缩放
-	/* window.useZoom = useZoom();
+	window.useZoom = useZoom();
 	function useZoom(){
 		return /iPhone|iPad|iPod/gi.test(ua) || typeof window.chrome === 'object';
-	}; */
+	};
 	// 添加css规则
 	function addStylesheetRules(css) {
 		var head = de.firstElementChild,
