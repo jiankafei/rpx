@@ -19,9 +19,9 @@
 		tid = null,
 		dt = deviceType(),
 		pcStyleEle = null, //给pc添加的样式元素
-		getW = function(){return de.getBoundingClientRect().width / dpr}; // 宽度
+		getW = function(){return de.getBoundingClientRect().width}; // 宽度
 
-	console.log(de.getBoundingClientRect().width, getW());
+	console.log(de.getBoundingClientRect().width);
 	// 为html元素添加data-dpr属性
 	de.setAttribute('data-dpr', dpr);
 
@@ -38,12 +38,7 @@
 
 	// 缩放
 	vp.setAttribute('name', 'viewport');
-	vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
-	if(~~getW() === 980) {
-		dpr = 1;
-		scale = 1;
-		vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
-	}
+	vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 
 	// 改变窗口
 	G.addEventListener('resize', function () {
@@ -93,7 +88,6 @@
 	function trans(){
 		var realDPR = G.devicePixelRatio,
 			tempDpr = realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1;
-		// tempDpr !== dpr && dprChange();
 		tempDpr !== dpr && G.location.reload();
 		var w = getW();
 		w > maxW && (w = maxW);
@@ -101,30 +95,12 @@
 		de.style.fontSize = rem + 'px';
 		flexible.rem = G.rem = rem;
 	};
-	/* dpr改变时执行 （这个也行，就看怎么选了）
-	function dprChange(){
-		dpr = !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1;
-		scale = 1 / dpr;
-		de.setAttribute('data-dpr', dpr);
-		vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
-		if(~~getW() === 980) {
-			dpr = 1;
-			scale = 1;
-			vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
-		}
-		dt === 'pc' ? de.firstElementChild.appendChild(pcStyleEle) : de.firstElementChild.removeChild(pcStyleEle);
-	}; */
 	// 设备检测
 	function deviceType(){
 		var dt = 'pc';
 		/(iPhone|iPod|iPad)/i.test(ua) ? dt = 'ios' : /(Android)/i.test(ua) ? dt = 'android' : /(Windows Phone)/i.test(ua) ? dt = 'wp' : dt = 'pc';
 		return dt;
 	};
-	// 判断是否缩放
-	/* window.useZoom = useZoom();
-	function useZoom(){
-		return /iPhone|iPad|iPod/gi.test(ua) || typeof window.chrome === 'object';
-	}; */
 	// 添加css规则
 	function addStylesheetRules(css) {
 		var head = de.firstElementChild,
