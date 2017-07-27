@@ -21,6 +21,7 @@
 		pcStyleEle = null, //给pc添加的样式元素
 		getW = function(){return de.getBoundingClientRect().width / dpr}; // 宽度
 
+	console.log(de.getBoundingClientRect().width);
 	// 为html元素添加data-dpr属性
 	de.setAttribute('data-dpr', dpr);
 
@@ -38,7 +39,7 @@
 	// 缩放
 	vp.setAttribute('name', 'viewport');
 	vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
-	if(getW() === 980) {
+	if(~~getW() === 980) {
 		dpr = 1;
 		scale = 1;
 		vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
@@ -106,7 +107,7 @@
 		scale = 1 / dpr;
 		de.setAttribute('data-dpr', dpr);
 		vp.setAttribute('content', 'target-densitydpi=device-dpi, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
-		if(getW() === 980) {
+		if(~~getW() === 980) {
 			dpr = 1;
 			scale = 1;
 			vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1');
