@@ -7,7 +7,7 @@
 
 ## 宽度获取
  1. 通过 window.screen.width 获取，但在低端 Android 上获取的却是html宽度，因此不可用；
- 2. 没有添加 meta>name=viewport 标签。则获取的html元素宽度为980，因此也不可用；
+ 2. 没有添加 meta>name=viewport 标签。则获取的html元素宽度为980或1024，也就是默认的viewport宽度，因此也不可用；
  3. 添加了 meta>name=viewport 标签。则获取的html元素宽度就正常了。
 
 	w = document.documentElement.clientWidth / window.dpr
