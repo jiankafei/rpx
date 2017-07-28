@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+<style>
+	*{margin: 0;padding: 0;}
+</style>
+<script>
+	var G = window,
+		doc = G.document,
+		de = doc.documentElement,
+		vp = doc.createElement('meta'),
+		hd = document.querySelector('head'),
+		maxW = 540,
+		ds = 750,
+		dpr = window.devicePixelRatio,
+		scale = 1 / dpr;
+	// 添加vp
+	hd.appendChild(vp);
+
+	// 缩放
+	vp.setAttribute('name', 'viewport');
+	vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
+
+	var w = de.getBoundingClientRect().width;
+	console.log('动态添加meta后 | w：' + w + ', ' + 'w/dpr: ' + w / dpr);
+</script>
+</head>
+<body>
+
+</body>
+</html>
