@@ -7,7 +7,9 @@
 
 ## 宽度获取
  1. 通过 window.screen.width 获取，但在低端 Android 上获取的却是html宽度，因此不可用；
+
  2. 没有添加 meta>name=viewport 标签。则获取的html元素宽度为980或1024，也就是默认的viewport宽度，因此也不可用；
+
  3. 添加了 meta>name=viewport 标签。则获取的html元素宽度就正常了。
 
 	w = document.documentElement.clientWidth / window.dpr
@@ -23,6 +25,15 @@
  注：dpr为小数为什么要强行设置为1？因为在一些低端 Android 和谷歌手机上会出现尺寸计算错误的问题，就是明明 dpr=2.5 但在 rem 的计算上却当作 2.0来处理，导致尺寸出错，所以只能设置为1。
 
 ## 版本
+
+ **Upgrade**
+ 添加 rem_post.js 文件
+ 1. 该文件的方案不再使用 viewport 的缩放，全部都为1；
+ 2. 1px使用 postcss-write-svg 插件实现；
+ 3. 由于目前 vm 单位的兼容性并不好，所有响应式方案任然使用 rem 单位来实现，使用js来动态改变根字体大小；
+ 4. 到了 vm 单位可以实战的时候，则可以使用 postcss-px-to-viewport 把px转换成vw，这样就不需要js了；
+ 5. 这句话只是想说，拥抱css处理器是明智的。
+
  **V1.5**
  1. 开发者需要引入一段meta标签，还有该js文件；
  `<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
