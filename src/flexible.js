@@ -33,15 +33,13 @@
 
 	// 改变窗口
 	G.addEventListener('resize', function () {
-		clearTimeout(tid);
 		tid = G.setTimeout(trans, 300);
 	}, false);
 	G.addEventListener('pageshow', function (ev) {
 		ev.persisted && (clearTimeout(tid), tid = G.setTimeout(trans, 300));
 	}, false);
-	G.orientation !== undefined && G.addEventListener('orientationchange', function(){
-		clearTimeout(tid);
-		/*switch (G.orientation) {
+	/* G.orientation !== undefined && G.addEventListener('orientationchange', function(){
+		switch (G.orientation) {
 			case 0:
 			case 180:
 				console.log('portrait');
@@ -50,9 +48,9 @@
 			case -90:
 				console.log('landscape');
 				break;
-		}*/
+		}
 		tid = G.setTimeout(trans, 300);
-	}, false);
+	}, false); */
 
 	// 为body添加默认字体大小
 	'complete' === doc.readyState ? doc.body.style.fontSize = 12 * dpr + 'px' : doc.addEventListener('DOMContentLoaded', function (e) {
