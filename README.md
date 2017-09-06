@@ -38,6 +38,7 @@
  1. 开发者需要引入一段meta标签，还有该js文件；
  `<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
  2. 当设备的dpr为小数时，则设置为1，否则为设备真实dpr；
+ 3. 在横屏下根字体的不再改变，任然使用在竖屏下的根字体大小；
 
  注：开发者可以在html元素上设置 data-dpr 来自定义dpr，这只是一个补救措施，用来在特殊性况下使用，因此不推荐开发者使用；
 

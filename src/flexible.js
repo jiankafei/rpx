@@ -33,6 +33,7 @@
 
 	// 改变窗口
 	G.addEventListener('resize', function () {
+		clearTimeout(tid);
 		tid = G.setTimeout(trans, 300);
 	}, false);
 	G.addEventListener('pageshow', function (ev) {
