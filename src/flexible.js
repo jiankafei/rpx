@@ -29,7 +29,7 @@
 
 	// 缩放
 	vp.setAttribute('name', 'viewport');
-	vp.setAttribute('content', 'target-densitydpi=device-dpi, width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
+	vp.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=no');
 
 	// 改变窗口
 	G.addEventListener('resize', function () {

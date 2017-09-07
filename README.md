@@ -36,7 +36,7 @@
 
  **V1.5**
  1. 开发者需要引入一段meta标签，还有该js文件；
- `<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+ `<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
  2. 当设备的dpr为小数时，则设置为1，否则为设备真实dpr；
  3. 在横屏下根字体的不再改变，任然使用在竖屏下的根字体大小；
 
@@ -109,7 +109,7 @@
 
  ## 使用
 1.首先手动添加 meta>name=viewport 标签
-	`<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
+	`<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">`
 
 2.放到 head 所有资源的前面；
 
