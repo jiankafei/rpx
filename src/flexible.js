@@ -77,7 +77,7 @@
 	// 设置根字体大小
 	function trans(){
 		var realDPR = G.devicePixelRatio,
-			tempDpr = realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1;
+			tempDpr = !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1;
 		tempDpr !== dpr && G.location.reload();
 		w > maxW && (w = maxW);
 		var rem = G.parseFloat(dpr * w * 100 / ds);
