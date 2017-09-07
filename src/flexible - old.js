@@ -86,7 +86,7 @@
 	// 设置根字体大小
 	function trans(){
 		var realDPR = G.devicePixelRatio,
-			tempDpr = useZoom() ? realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1 : 1;
+			tempDpr = useZoom() ? !!dfDpr ? dfDpr : realDPR ? realDPR === Math.floor(realDPR) ? realDPR : 1 : 1 : 1;
 		// tempDpr !== dpr && dprChange();
 		tempDpr !== dpr && G.location.reload();
 		var w = getW();
