@@ -1,5 +1,5 @@
 # rpx.js
- 移动端动态修改根字体方案
+ 移动端动态修改根字体方案，配合[postcss-unit-converter](https://github.com/jiankafei/postcss-unit-converter)使用
 
 ## Demo
 
