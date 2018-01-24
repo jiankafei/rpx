@@ -27,12 +27,9 @@
 ## 版本
 
  **Upgrade**
- 添加 rem_post.js 文件
- 1. 该文件的方案不再使用 viewport 的缩放，全部都为1；
- 2. 1px使用 postcss-write-svg 插件实现；
- 3. 由于目前 vm 单位的兼容性并不好，所有响应式方案任然使用 rem 单位来实现，使用js来动态改变根字体大小；
- 4. 到了 vm 单位可以实战的时候，则可以使用 postcss-px-to-viewport 把px转换成vw，这样就不需要js了；
- 5. 这句话只是想说，拥抱css处理器是明智的。
+ rpx-common 使用viewport缩放，自行添加meta标签
+ rpx-strict 使用viewport缩放，自行添加meta标签，但只在ios和chrome有效
+ rpx　不使用缩放
 
  **V1.5**
  1. 开发者需要引入一段meta标签，还有该js文件；
