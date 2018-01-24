@@ -27,9 +27,9 @@
 ## 版本
 
  **Upgrade**
- rpx-common 使用viewport缩放，自行添加meta标签
- rpx-strict 使用viewport缩放，自行添加meta标签，但只在ios和chrome有效
- rpx　不使用缩放
+ 1. rpx-common 使用viewport缩放，自行添加meta标签
+ 2. rpx-strict 使用viewport缩放，自行添加meta标签，但只在ios和chrome有效
+ 3. rpx　不使用缩放
 
  **V1.5**
  1. 开发者需要引入一段meta标签，还有该js文件；
