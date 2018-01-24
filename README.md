@@ -3,7 +3,7 @@
 
 ## Demo
 
-[demo](https://jiankafei.github.io/flexible/)
+[demo](https://jiankafei.github.io/rpx/)
 
 ## 宽度获取
  1. 通过 window.screen.width 获取，但在低端 Android 上获取的却是html宽度，因此不可用；

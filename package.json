@@ -1,8 +1,15 @@
 {
   "name": "rpx",
   "version": "1.5.0",
-  "description": "移动端web高清屏显示及伸缩布局方案",
-  "repository": "git@github.com:jiankafei/rpx.git",
+  "description": "移动端动态修改根字体方案",
+  "main": "src/rpx.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jiankafei/rpx.git"
+  },
   "author": "Zr",
-  "license": "MIT"
+  "license": "MPL-2.0",
+  "engines": {
+    "node": ">=8.9.0"
+  }
 }
