@@ -17,7 +17,7 @@
 		maxW = 540, // 最大字体宽度
 		tid = null, // timerId
 		dt = deviceType(), // 设备类型
-		pcStyleEle = null, //给pc添加的样式元素
+		pcStyleEle = null; //给pc添加的样式元素
 
 	switch (dt) {
 		case 'pc':
@@ -26,10 +26,10 @@
 			pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: 414px !important;}');
 			break;
 		case 'ios':
-			de.classList.add('ios')
+			de.classList.add('ios');
 			break;
 		case 'droid':
-			de.classList.add('droid')
+			de.classList.add('droid');
 			break;
 	}
 
