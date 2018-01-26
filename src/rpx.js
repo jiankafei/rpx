@@ -21,10 +21,19 @@
 		pcStyleEle = null, //给pc添加的样式元素
 		dpr = window.dpr = mode === 'logic' ? 1 : window.devicePixelRatio;
 
-	// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
-	dt === 'pc' && de.classList.add('pc'), (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: 414px !important;}'));
-	dt === 'ios' && de.classList.add('ios');
-	dt === 'droid' && de.classList.add('droid');
+	switch (dt) {
+		case 'pc':
+			de.classList.add('pc');
+			// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
+			pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: 414px !important;}');
+			break;
+		case 'ios':
+			de.classList.add('ios')
+			break;
+		case 'droid':
+			de.classList.add('droid')
+			break;
+	}
 
 	// 改变窗口
 	G.addEventListener('resize', function () {
