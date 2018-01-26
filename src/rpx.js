@@ -18,36 +18,19 @@
 		tid = null, // timerId
 		dt = deviceType(), // 设备类型
 		pcStyleEle = null; //给pc添加的样式元素
-
-	switch (dt) {
-		case 'pc':
-			de.classList.add('pc');
-			// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
-			pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: 414px !important;}');
-			break;
-		case 'ios':
-			de.classList.add('ios');
-			break;
-		case 'droid':
-			de.classList.add('droid');
-			break;
-	}
-
+	// 为html添加设备类名
+	de.classList.add(dt);
 	// 改变窗口
-	G.addEventListener('resize', function () {
+	G.addEventListener('resize', tiemoutFn, false);
+	G.addEventListener('pageshow', function (ev) {
+		ev.persisted && tiemoutFn();
+	}, false);
+	G.orientation !== undefined && G.addEventListener('orientationchange', tiemoutFn, false);
+	// 事件回调
+	function tiemoutFn(){
 		clearTimeout(tid);
 		tid = G.setTimeout(setrpx, 300);
-	}, false);
-	G.addEventListener('pageshow', function (ev) {
-		if (ev.persisted) {
-			clearTimeout(tid);
-			tid = G.setTimeout(setrpx, 300)
-		};
-	}, false);
-	G.orientation !== undefined && G.addEventListener('orientationchange', function(){
-		tid = G.setTimeout(setrpx, 300);
-	}, false);
-
+	}
 	// 执行转换
 	setrpx();
 	// 设置根字体大小
@@ -61,16 +44,7 @@
 	// 设备检测
 	function deviceType(){
 		let dt = 'pc';
-		/(?:iPhone|iPod|iPad)/i.test(ua) ? dt = 'ios' : /(?:Android)/i.test(ua) ? dt = 'droid' : /(?:Windows\sPhone)/i.test(ua) ? dt = 'wp' : dt = 'pc';
+		/(?:iPhone|iPod|iPad)/i.test(ua) ? dt = 'ios' : /(?:Android)/i.test(ua) ? dt = 'android' : /(?:Windows\sPhone)/i.test(ua) ? dt = 'wp' : dt = 'pc';
 		return dt;
-	};
-	// 添加css规则
-	function addStylesheetRules(css) {
-		let head = de.firstElementChild,
-			style = doc.createElement('style');
-		style.type = 'text/css';
-		style.styleSheet && style.styleSheet.cssText ? style.styleSheet.cssText = css : style.appendChild(doc.createTextNode(css));
-		head.appendChild(style);
-		return style;
 	};
 })(window);
