@@ -1,13 +1,13 @@
 {
   "name": "rpx",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "移动端动态修改根字体方案",
   "main": "src/rpx.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:jiankafei/rpx.git"
   },
-  "author": "Zr",
+  "author": "zren",
   "license": "MPL-2.0",
   "engines": {
     "node": ">=8.9.0"

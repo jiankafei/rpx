@@ -4,12 +4,12 @@
  * <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
  * <meta name="viewport" content="user-scalable=no">
  * G	{Element}	window，不要修改
+ * mode	{string}	模式 logic | physics 必填
  * ds	{number}	设计稿大小，默认750
  * dpx	{number}	设计稿大小对应的根字体大小，默认75
  */
 ;(function(G, mode, ds, dpx){
 	'use strict';
-	mode = mode || 'logic'; // 布局模式，逻辑像素布局还是物理像素布局
 	ds = ds || 750; // 设计稿大小
 	dpx = dpx || 75; // 设计稿大小对应的根字体大小
 	let doc = G.document,
@@ -66,4 +66,4 @@
 		head.appendChild(style);
 		return style;
 	};
-})(window);
+})(window, 'logic');
