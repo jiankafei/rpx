@@ -9,21 +9,11 @@
 
 **V2.0**
 
-rpx 不再使用缩放，在最近的测试中，发现可以使用一种新的方式，两种方式结合dealpx使用
-
-逻辑像素布局使用：
+rpx 不再使用缩放
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 ```
-
-物理像素布局使用：
-
-```html
-<meta name="viewport" content="user-scalable=no">
-```
-
-在这种设置下，逻辑像素和物理像素是一比一的，所以我直接使用物理像素布局的概念，以示区分。
 
 **V1.5版本**
 
@@ -73,7 +63,6 @@ p: 计算得出的实际root字体大小
 
 ```txt
 G: window // 不要修改
-mode: 'logic' // 模式 logic | physics 必填
 ds: 750 // 设计稿大小，默认750
 dpx: 75 // 设计稿大小对应的根字体大小，默认75
 ```
