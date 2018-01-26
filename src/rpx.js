@@ -22,7 +22,7 @@
 		dpr = window.dpr = mode === 'logic' ? 1 : window.devicePixelRatio;
 
 	// pc上隐藏滚动条，宽度为414，并且为html和定位fixed元素添加宽度
-	dt === 'pc' && (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 +'px !important;}'));
+	dt === 'pc' && de.classList.add('pc') && (pcStyleEle = addStylesheetRules('::-webkit-scrollbar{display: none !important}.fixed{position: fixed !important;left: 0 !important;right: 0 !important;}html, .fixed{margin-left: auto !important;margin-right: auto !important;width: '+ 414 +'px !important;}'));
 	dt === 'ios' && de.classList.add('ios');
 	dt === 'droid' && de.classList.add('droid');
 

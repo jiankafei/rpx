@@ -40,6 +40,20 @@ input:autofill{
 }
 /* IOS可编辑元素 */
 [contenteditable = "true"]{-webkit-user-select: auto;}
+/* pc */
+.pc *::-webkit-scrollbar{
+	display: none !important
+}
+.pc .fixed{
+	position: fixed !important;
+	left: 0 !important;
+	right: 0 !important;
+}
+.pc, .pc .fixed{
+	margin-left: auto !important;
+	margin-right: auto !important;
+	width: 414px !important;
+}
 /* vue */
 [v-cloak] {
   display: none;
