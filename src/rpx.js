@@ -2,7 +2,6 @@
  * 设置根字体大小
  * 自己添加meta标签
  * <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
- * <meta name="viewport" content="user-scalable=no">
  * G	{Element}	window，不要修改
  * ds	{number}	设计稿大小，默认750
  * dpx	{number}	设计稿大小对应的根字体大小，默认75
@@ -20,6 +19,8 @@
 		pcStyleEle = null; //给pc添加的样式元素
 	// 为html添加设备类名
 	de.classList.add(dt);
+	// pc上为html元素添加特定样式
+	dt === 'pc' && addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}html.pc {margin-left: auto!important;margin-right: auto!important;width: 414px!important;}');
 	// 改变窗口
 	G.addEventListener('resize', tiemoutFn, false);
 	G.addEventListener('pageshow', function (ev) {
@@ -46,5 +47,14 @@
 		let dt = 'pc';
 		/(?:iPhone|iPod|iPad)/i.test(ua) ? dt = 'ios' : /(?:Android)/i.test(ua) ? dt = 'android' : /(?:Windows\sPhone)/i.test(ua) ? dt = 'wp' : dt = 'pc';
 		return dt;
+	};
+	// 添加css规则
+	function addStylesheetRules(css) {
+		var head = de.firstElementChild,
+			el = doc.createElement('style');
+		el.type = 'text/css';
+		el.styleSheet && el.styleSheet.cssText ? el.styleSheet.cssText = css : el.appendChild(doc.createTextNode(css));
+		head.appendChild(el);
+		return el;
 	};
 })(window);
