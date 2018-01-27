@@ -51,7 +51,7 @@ p: 计算得出的实际root字体大小
 
 ## 使用
 
-1. 首先手动添加 meta>name=viewport 标签
+1. 首先手动添加 meta 标签
 
 ```html
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
@@ -66,5 +66,3 @@ G: window // 不要修改
 ds: 750 // 设计稿大小，默认750
 dpx: 75 // 设计稿大小对应的根字体大小，默认75
 ```
-
-4. 对于定位fixed的元素，建议加上fixed类名；

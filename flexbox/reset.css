@@ -38,54 +38,9 @@ input:autofill{
 	animation-name: autofillcolor;
 	animation-fill-mode: forwards;
 }
-/* IOS可编辑元素 */
+/* ios可编辑元素 */
 [contenteditable = "true"]{-webkit-user-select: auto;}
 /* vue */
 [v-cloak] {
   display: none;
-}
-/* AlloyLever */
-#__vconsole{
-	font-size: .26rem !important;
-}
-#__vconsole .vc-switch{
-	right: .1rem !important;
-	bottom: .1rem !important;
-	padding: .12rem .2rem !important;
-	border-radius: .06rem !important;
-	font-size: .26rem !important;
-}
-#__vconsole .vc-tabbar{
-	height: .5rem !important;
-	border: none !important;
-	outline: 1px solid #d9d9d9;
-}
-#__vconsole .vc-tabbar .vc-tab{
-	line-height: .5rem !important;
-}
-#__vconsole .vc-topbar{
-	height: .5rem !important;
-}
-#__vconsole .vc-topbar .vc-toptab{
-	line-height: .5rem !important;
-	padding: 0 .2rem !important;
-}
-#__vconsole .vc-content{
-	top: .5rem !important;
-	bottom: .5rem !important;
-}
-#__vconsole .vc-content.vc-has-topbar{
-	top: 1rem !important;
-}
-#__vconsole .vc-toolbar{
-	line-height: .5rem !important;
-}
-#__vconsole .vc-logbox .vc-item .vc-item-meta{
-	width: .6rem !important;
-}
-#__vconsole .vc-logbox form.vc-cmd{
-	display: none !important;
-}
-#__vconsole .vc-logbox .vc-log:empty:before{
-	font-size: .3rem !important;
 }
