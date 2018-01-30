@@ -20,7 +20,7 @@
 	// 为html添加设备类名
 	de.classList.add(dt);
 	// pc上为html元素添加特定样式
-	dt === 'pc' && addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}html.pc {margin-left: auto!important;margin-right: auto!important;width: 414px!important;}');
+	dt === 'pc' && addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}.pc,.pc .fixed {margin-left: auto!important;margin-right: auto!important;width: 414px!important;}.pc .fixed{position: fixed!important;left: 0!important;right: 0!important;}');
 	// 改变窗口
 	G.addEventListener('resize', tiemoutFn, false);
 	G.addEventListener('pageshow', function (ev) {
