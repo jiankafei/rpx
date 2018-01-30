@@ -22,10 +22,10 @@
 	// pc上为html元素添加特定样式
 	dt === 'pc' && addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}.pc,.pc .fixed {margin-left: auto!important;margin-right: auto!important;width: 414px!important;}.pc .fixed{position: fixed!important;left: 0!important;right: 0!important;}');
 	// 改变窗口
-	G.addEventListener('resize', tiemoutFn, false);
+	/* G.addEventListener('resize', tiemoutFn, false);
 	G.addEventListener('pageshow', function (ev) {
 		ev.persisted && tiemoutFn();
-	}, false);
+	}, false); */
 	G.orientation !== undefined && G.addEventListener('orientationchange', tiemoutFn, false);
 	// 事件回调
 	function tiemoutFn(){
