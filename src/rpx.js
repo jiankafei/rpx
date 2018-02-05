@@ -10,19 +10,23 @@
 	'use strict';
 	ds = ds || 750; // 设计稿大小
 	dpx = dpx || 75; // 设计稿大小对应的根字体大小
-	let doc = G.document,
+
+	const doc = G.document,
 		de = doc.documentElement,
 		ua = G.navigator.appVersion,
 		maxW = 540, // 最大字体宽度
-		tid = null, // timerId
-		dt = deviceType(), // 设备类型
+		dt = deviceType(); // 设备类型
+
+	let tid = null, // timerId
 		pcStyleEle = null; //给pc添加的样式元素
+
 	// 为html添加data-dpr属性
 	de.dataset.dpr = Math.floor(window.devicePixelRatio);
 	// 为html添加设备类名
 	de.classList.add(dt);
 	// pc上为html元素添加特定样式
 	dt === 'pc' && addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}.pc,.pc .fixed {margin-left: auto!important;margin-right: auto!important;width: 486px!important;}.pc .fixed{position: fixed!important;left: 0!important;right: 0!important;}');
+	
 	// 改变窗口
 	G.addEventListener('resize', tiemoutFn, false);
 	G.addEventListener('pageshow', function (ev) {
@@ -38,6 +42,7 @@
 		de.dataset.dpr = Math.floor(window.devicePixelRatio);
 		tid = G.setTimeout(setrpx, 300);
 	}
+	
 	// 执行转换
 	setrpx();
 	// 设置根字体大小
