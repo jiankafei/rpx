@@ -13,20 +13,13 @@
 
 	const doc = G.document,
 		de = doc.documentElement,
-		ua = G.navigator.appVersion,
-		maxW = 540, // 最大字体宽度
-		dt = deviceType(ua); // 设备类型
-
+		maxW = 540; // 最大字体宽度
 	let tid = null, // timerId
 		pcStyleEle = null; //给pc添加的样式元素
 
-	// 为html添加data-dpr属性
-	de.dataset.dpr = Math.floor(window.devicePixelRatio);
-	// 为html添加设备类名
-	de.classList.add(dt);
-	// pc上为html元素添加特定样式
-	dt === 'pc' && addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}.pc,.pc .fixed {margin-left: auto!important;margin-right: auto!important;width: 486px!important;}.pc .fixed{position: fixed!important;left: 0!important;right: 0!important;}');
-	
+	// 设置设备类型
+	setDeviceType();
+
 	// 改变窗口
 	G.addEventListener('resize', tiemoutFn, false);
 	G.addEventListener('pageshow', function (ev) {
@@ -37,13 +30,11 @@
 	// 事件回调
 	function tiemoutFn(){
 		clearTimeout(tid);
-		const ua = G.navigator.appVersion,
-			dt = deviceType(ua);
-		de.classList.remove('pc', 'ios', 'android', 'wp');
-		de.classList.add(dt);
-		de.dataset.dpr = Math.floor(window.devicePixelRatio);
-		tid = G.setTimeout(setrpx, 300);
-	}
+		tid = G.setTimeout(function(){
+			setDeviceType();
+			setrpx();
+		}, 300);
+	};
 
 	// 执行转换
 	setrpx();
@@ -55,6 +46,16 @@
 		rpx = G.parseFloat(w * dpx / ds);
 		de.style.fontSize = rpx + 'px';
 	};
+	// 添加设备类型
+	function setDeviceType(){
+		const ua = G.navigator.appVersion,
+			dt = deviceType(ua);
+		de.classList.remove('pc', 'ios', 'android', 'wp');
+		de.classList.add(dt);
+		de.dataset.dpr = Math.floor(window.devicePixelRatio);
+		// pc上为html元素添加特定样式
+		dt === 'pc' && pcStyleEle === null && (pcStyleEle = addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}.pc,.pc .fixed {margin-left: auto!important;margin-right: auto!important;width: 486px!important;}.pc .fixed{position: fixed!important;left: 0!important;right: 0!important;}'));
+	}
 	// 设备检测
 	function deviceType(ua){
 		let dt = 'pc';
