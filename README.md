@@ -15,6 +15,8 @@ rpx 不再使用缩放
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 ```
 
+pc上显示宽度固定为486px
+
 **V1.5版本**
 
 1. rpx-common 使用viewport缩放，自行添加meta标签
