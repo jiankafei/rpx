@@ -23,7 +23,7 @@
 	// 改变窗口
 	G.addEventListener('resize', tiemoutFn, false);
 	G.addEventListener('pageshow', function (ev) {
-		ev.persisted && tiemoutFn();
+		ev.persisted && tiemoutFn(); // 页面隐藏保存在 back-forward cache 中时，不需要重新执行
 	}, false);
 	// 屏幕旋转
 	G.orientation !== undefined && G.addEventListener('orientationchange', tiemoutFn, false);
