@@ -28,6 +28,7 @@
 	G.addEventListener('pageshow', function (ev) {
 		ev.persisted && tiemoutFn();
 	}, false); */
+	// 屏幕旋转
 	G.orientation !== undefined && G.addEventListener('orientationchange', tiemoutFn, false);
 	// 事件回调
 	function tiemoutFn(){
