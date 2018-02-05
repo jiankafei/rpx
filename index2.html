@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="Zr">
+	<meta name="description" content="练习">
+	<meta name="Keywords" content="Zr flexible">
+	<meta name="apple-mobile-web-app-title" content="练习">
+	<!-- 删除默认的工具栏和菜单栏 -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- 在webapp应用下状态条的颜色 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="theme-color" content="#fff">
+	<!-- 是否自动探测电话号码 -->
+	<meta name="format-detection" content="telephone=no, email=no">
+	<meta http-equiv="x-rim-auto-match" content="none">
+	<!-- 缓存过期时间 -->
+	<meta http-equiv="Expires" content="-1">
+	<!-- 禁止缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<!-- 是否自动放大字体 -->
+	<meta name="wap-font-scale" content="no">
+	<title>Demo2</title>
+<script src="./src/rpx.js"></script>
+<link rel="stylesheet" href="./flexbox/reset.css">
+<link rel="stylesheet" href="./flexbox/flexbox.css">
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+	.main-header{
+		background-color: #FBDA61;
+		background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+	}
+	.main-footer{
+		background-color: #85FFBD;
+		background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+	}
+	.main-body{
+		font-size: .3rem;
+	}
+	.body-header{
+		background-color: #FAACA8;
+		background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+	}
+	.body-footer{
+		background-color: #74EBD5;
+		background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+	}
+	header, footer{
+		height: 1rem;
+		line-height: 1rem;
+	}
+	.body-wrap{
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		background-color: #8EC5FC;
+		background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+	}
+	.body-wrap p{
+		font-size: .36rem;
+		line-height: 3.6;
+	}
+	/* .body-wrap p+p{
+		border-top: 1px solid #fff;
+	} */
+</style>
+</head>
+<body class="flex-box flex-col">
+	<header class="main-header">儿歌三百首</header>
+	<main class="main-body flex-1 flex-box flex-col">
+        <header class="body-header flex-none">《沁园春·雪》</header>
+        <section class="body-wrap flex-1 pes">
+			<p>北国风光，千里冰封，万里雪飘。</p>
+			<p>望长城内外，惟余莽莽；</p>
+			<p>大河上下，顿失滔滔。</p>
+			<p>山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+			<p>须晴日，看红装素裹，分外妖娆。</p>
+			<p>江山如此多娇，引无数英雄竞折腰。</p>
+			<p>惜秦皇汉武，略输文采；</p>
+			<p>唐宗宋祖，稍逊风骚。</p>
+			<p>一代天骄，成吉思汗，只识弯弓射大雕。</p>
+			<p>俱往矣，数风流人物，还看今朝。</p>
+		</section>
+        <footer class="body-footer flex-none">作者-毛泽东</footer>
+    </main>
+    <footer class="main-footer">儿歌三百首</footer>
+</body>
+</html>
