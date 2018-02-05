@@ -17,6 +17,8 @@
 		tid = null, // timerId
 		dt = deviceType(), // 设备类型
 		pcStyleEle = null; //给pc添加的样式元素
+	// 为html添加data-dpr属性
+	de.dataset.dpr = Math.floor(window.devicePixelRatio);
 	// 为html添加设备类名
 	de.classList.add(dt);
 	// pc上为html元素添加特定样式
