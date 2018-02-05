@@ -39,7 +39,7 @@
 		clearTimeout(tid);
 		const ua = G.navigator.appVersion,
 			dt = deviceType(ua);
-		de.classList.add(dt);
+		de.classList.remove('pc', 'ios', 'android', 'wp').add(dt);
 		de.dataset.dpr = Math.floor(window.devicePixelRatio);
 		tid = G.setTimeout(setrpx, 300);
 	}
