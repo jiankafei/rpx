@@ -3,7 +3,7 @@
 
 ## Demo
 
-[demo2](https://jiankafei.github.io/rpx/index2) 基于2.0版本
+[demo2](https://jiankafei.github.io/rpx/index2.html) 基于2.0版本
 
 [demo](https://jiankafei.github.io/rpx/) 基于1.5版本
 
