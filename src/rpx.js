@@ -15,7 +15,7 @@
 		de = doc.documentElement,
 		ua = G.navigator.appVersion,
 		maxW = 540, // 最大字体宽度
-		dt = deviceType(); // 设备类型
+		dt = deviceType(ua); // 设备类型
 
 	let tid = null, // timerId
 		pcStyleEle = null; //给pc添加的样式元素
@@ -37,12 +37,13 @@
 	// 事件回调
 	function tiemoutFn(){
 		clearTimeout(tid);
-		const dt = deviceType();
+		const ua = G.navigator.appVersion,
+			dt = deviceType(ua);
 		de.classList.add(dt);
 		de.dataset.dpr = Math.floor(window.devicePixelRatio);
 		tid = G.setTimeout(setrpx, 300);
 	}
-	
+
 	// 执行转换
 	setrpx();
 	// 设置根字体大小
@@ -54,7 +55,7 @@
 		de.style.fontSize = rpx + 'px';
 	};
 	// 设备检测
-	function deviceType(){
+	function deviceType(ua){
 		let dt = 'pc';
 		/(?:iPhone|iPod|iPad)/i.test(ua) ? dt = 'ios' : /(?:Android)/i.test(ua) ? dt = 'android' : /(?:Windows\sPhone)/i.test(ua) ? dt = 'wp' : dt = 'pc';
 		return dt;
