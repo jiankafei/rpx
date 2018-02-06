@@ -54,7 +54,7 @@
 		de.classList.add(dt);
 		de.dataset.dpr = Math.floor(window.devicePixelRatio);
 		// pc上为html元素添加特定样式
-		dt === 'pc' && pcStyleEle === null && (pcStyleEle = addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}.pc,.pc .fixed {margin-left: auto!important;margin-right: auto!important;width: 486px!important;}.pc .fixed{position: fixed!important;left: 0!important;right: 0!important;}'));
+		dt === 'pc' && pcStyleEle === null && (pcStyleEle = addStylesheetRules('.pc ::-webkit-scrollbar {display: none!important;}.pc,.pc .fixed {margin-left: auto!important;margin-right: auto!important;width: 480px!important;}.pc .fixed{position: fixed!important;left: 0!important;right: 0!important;}'));
 	}
 	// 设备检测
 	function deviceType(ua){
